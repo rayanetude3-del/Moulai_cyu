@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Fonctionnalité</title>
+  <link rel="icon" type="image/jpeg" href="icon.jpg">
+  <meta name="description" content="MP3, métadonnées et playlists.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header id="top" class="site-header">
+  <table class="header-table">
+    <tr>
+      <td class="header-left">
+        <img id="logo" src="1er.png" alt="cyu">
+      </td>
+      <td class="header-right">
+        <p class="header-meta">
+          <strong>L2 Informatique CY Université</strong><br>
+          Année 2025–2026
+        </p>
+        <img id="scndlogo" src="france.jpg" alt="France">
+      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <h1 class="title">Nos Fonctionnalités</h1>
+
+  <p class="subtitle">
+    <strong>Lire des métadonnées • Explorer des dossiers • Créer des playlists</strong>
+  </p> 
+  <p class="highlight">
+    <strong>Analyser les métadonnées d’un fichier MP3</strong>
+  </p>
+
+  <nav class="main-nav">
+    <a href="index.html">Accueil</a>
+    <a href="formats.html">Nos Formats</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+</header>
+
+<main id="container">
+
+  <section>
+    <h2 class="section-title"><u><em>Fonctionnalités principales</em></u></h2>
+
+    <p>
+      -> Cette page liste ce que notre Application est capable de faire. Les exemples ci-dessous sont simples :
+      nous pouvons les adapter selon ton projet (CLI/GUI).
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Fonction</th>
+          <th>À quoi ça sert</th>
+          <th>Exemple</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><strong>Lire un MP3</strong></td>
+          <td>Afficher les métadonnées (titre, artiste, album, durée...)</td>
+          <td><em>Analyser un fichier</em></td>
+        </tr>
+
+        <tr>
+          <td><strong>Explorer un dossier</strong></td>
+          <td>Retrouver tous les MP3 dans une arborescence</td>
+          <td><em>Scanner ./music/</em></td>
+        </tr>
+
+        <tr>
+          <td><strong>Créer une playlist</strong></td>
+          <td>Générer un fichier playlist à partir des MP3 trouvés</td>
+          <td><em>playlist.xspf</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2 class="section-title"><strong><u><em>Utilisation CLI et GUI</em></u></strong></h2>
+
+    <h3 class="article-title"><u>Mode CLI (console)</u></h3>
+
+    <p>
+      <strong>Le mode CLI</strong> permet d’utiliser l’application directement depuis le <strong>terminal</strong> en passant des arguments lors de l’exécution.
+      L’utilisateur peut analyser soit un fichier MP3 <strong>unique à l’aide de l’option -f</strong>, soit <strong>un dossier</strong> contenant plusieurs fichiers MP3 avec <strong>l’option -d</strong>.
+      Les métadonnées extraites sont affichées directement dans <strong>la console</strong>, ce qui permet une utilisation rapide et efficace.
+    </p>
+
+    <p>
+      <strong>L’option -o permet de sauvegarder</strong> le résultat du traitement dans un fichier de playlist, dont le format dépend le format choisie
+      <strong>(par exemple .m3u8, .xspf ou .jspf)</strong>. Quelques exemples d’utilisation sont :
+    </p>
+
+    <ul>
+      <li>-> <strong>java -jar cli.jar -f musique.mp3</strong></li>
+      <li>-> <strong>java -jar cli.jar -d ./music -o playlist.m3u8</strong></li>
+      <li>-> <strong>java -jar cli.jar -d ./music -o playlist.xspf</strong></li>
+    </ul>
+
+    <p>
+      Le mode CLI est principalement destiné à un usage technique ou automatisé et met en avant la logique interne de l’application sans interface graphique.
+    </p>
+
+    <h3 class="article-title"><u>Mode GUI (graphique)</u></h3>
+
+    <p>
+      Le <strong>mode GUI</strong> propose une <strong>interface graphique</strong> permettant une utilisation plus intuitive de l’application.
+      L’utilisateur peut sélectionner un fichier ou un dossier à analyser via des <strong>fenêtres de sélection</strong>, <strong>visualiser</strong> les morceaux détectés dans <strong>un tableau</strong>
+      et générer une playlist à l’aide <strong>de boutons</strong>.
+      Ce mode est plus adapté à un <strong>usage interactif et visuel</strong>.
+    </p>
+
+    <p>
+      Le GUI repose sur les mêmes classes métier que le CLI, ce qui garantit un fonctionnement identique pour l’extraction des métadonnées et la création des playlists.
+      La différence réside uniquement dans la manière dont l’utilisateur <strong>interagit</strong> avec l’application.
+    </p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2 class="section-title">
+      <em><u>Comprendre le fonctionnement interne de l'Application</u></em>
+    </h2>
+
+    <table class="footer-table">
+      <tr>
+
+        <td class="fmt-cell">
+          <table class="fmt-card">
+            <tr>
+              <td>
+                <figure class="fmt-figure">
+                  <img class="fmt-img" src="mp3agic.jpg" alt="Analyse MP3">
+                  <figcaption class="fmt-caption">
+                    <strong>Mp3agic</strong><br>
+                    La bibliothèque mp3agic est une bibliothèque Java externe a notre projet permettant d’extraire les métadonnées des fichiers MP3, comme le titre, l’artiste ou l’album, sans avoir à manipuler directement le format binaire du fichier audio, en utilisant les classes MP3File, ID3v1 et ID3v2.
+                    On la choisie pour sa simplicité d’utilisation et sa fiabilité car celle-ci dispose d'un API claire, l'API est un ensemble de methode et de classe Java.
+                    Dans notre application, mp3agic est utilisée uniquement pour l’extraction des métadonnées en manipulant les Tag ID3 qui sont situé sur un fichier mp3.
+                  </figcaption>
+                </figure>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td class="fmt-cell">
+          <table class="fmt-card">
+            <tr>
+              <td>
+                <figure class="fmt-figure">
+                  <img class="fmt-img-large" src="filewalk.jpg" alt="Génération de playlist">
+                  <figcaption class="fmt-caption">
+                    <strong>Parcourir un dossier récursivement</strong><br>
+                    La méthode Files.walk de l’API java.nio.file permet de parcourir automatiquement un répertoire ainsi que tous ses sous-dossiers.
+                    Elle facilite la détection des fichiers MP3 présents dans une arborescence en filtrant les chemins selon leur extension.
+                    Cette méthode évite l’écriture d’une récursivité manuelle, ce qui rend le code plus lisible, plus simple à maintenir et moins sujet aux erreurs.
+                    Son utilisation respecte les bonnes pratiques Java actuelles et s’intègre parfaitement dans notre application pour analyser efficacement une bibliothèque musicale avant la création de playlists.
+                  </figcaption>
+                </figure>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+        <td class="fmt-cell">
+          <table class="fmt-card">
+            <tr>
+              <td>
+                <figure class="fmt-figure">
+                  <img class="fmt-img" src="crplaylist.jpg" alt="Organisation des fichiers">
+                  <figcaption class="fmt-caption">
+                    <strong>Création Playlist</strong><br>
+                    Les playlists sont utilisées pour regrouper les fichiers MP3 analysés, qu’il s’agisse d’un seul fichier ou de plusieurs fichiers issus d’un dossier.
+                    Elles servent de structure centrale pour stocker les résultats du traitement et sont ensuite exportées dans des formats standards.
+                    Ces fichiers de playlist ne contiennent pas le son, mais uniquement des références vers les fichiers MP3.
+                  </figcaption>
+                </figure>
+              </td>
+            </tr>
+          </table>
+        </td>
+
+      </tr>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2 class="section-title"><u><em>Fonctionnement général de l’application</em></u></h2>
+
+    <p>
+      Le fonctionnement de l’application repose sur une suite d’étapes logiques permettant
+      de traiter efficacement les fichiers MP3 fournis par l’utilisateur.
+    </p>
+
+    <ol>
+      <li>Sélection d’un fichier ou d’un dossier contenant des fichiers MP3</li>
+      <li>Analyse automatique des métadonnées de chaque fichier détecté</li>
+      <li>Stockage temporaire des informations extraites</li>
+      <li>Génération d’une playlist à partir des fichiers analysés</li>
+      <li>Export de la playlist dans le format choisi par l’utilisateur</li>
+    </ol>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2 class="section-title"><u><em>Avantages de l’application</em></u></h2>
+
+    <ul>
+      <li>Gain de temps lors de l’organisation d’une bibliothèque musicale</li>
+      <li>Analyse automatique sans intervention manuelle</li>
+      <li>Compatibilité avec plusieurs formats de playlists</li>
+      <li>Utilisation possible en mode console ou graphique</li>
+      <li>Code structuré et conforme aux bonnes pratiques Java</li>
+    </ul>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2 class="section-title"><u><em>Limites et évolutions possibles</em></u></h2>
+
+    <p>
+      Dans sa version actuelle, l’application se concentre exclusivement sur le traitement
+      des fichiers MP3. Certaines fonctionnalités pourraient être ajoutées à l’avenir.
+    </p>
+
+    <ul>
+      <li>Prise en charge d’autres formats audio</li>
+      <li>Amélioration de l’interface graphique</li>
+      <li>Ajout de fonctionnalités de tri et de recherche avancée</li>
+      <li>Gestion des erreurs plus détaillée</li>
+    </ul>
+  </section>
+
+</main>
+<footer class="site-footer">
+
+  <table class="footer-top">
+    <tr>
+      <td>
+        <a class="footer-top-link" href="#top">Retour en haut</a>
+      </td>
+    </tr>
+  </table>
+
+  <table class="footer-alc">
+    <tr>
+      <td class="footer-col">
+        <strong>Autre redirections</strong>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+          <li><a href="formats.html">Formats</a></li>
+          <li><a href="contact.html">Contact / FAQ</a></li>
+        </ul>
+      </td>
+      <td class="footer-col">
+        <p class="footer-text">
+          <strong>Auteurs :</strong> Moulai Rayan et Diaby Moustapha<br>
+          Licence Informatique L2 CYU<br>
+          Année 2025–2026<br>
+          Analyser les métadonnées d’un fichier MP3
+        </p>
+      </td>
+      <td class="footer-col">
+        <img id="logobas" src="2eme.png" alt="logblanc">
+      </td>
+    </tr>
+  </table>
+</footer>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Formats</title>
+  <link rel="icon" type="image/jpeg" href="icon.jpg">
+  <meta name="description" content="MP3, métadonnées et playlists.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header id="top" class="site-header">
+  <table class="header-table">
+    <tr>
+      <td class="header-left">
+        <img id="logo" src="1er.png" alt="cyu">
+      </td>
+      <td class="header-right">
+        <p class="header-meta">
+          <strong>L2 Informatique CY Université</strong><br>
+          Année 2025–2026
+        </p>
+        <img id="scndlogo" src="france.jpg" alt="France">
+      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <h1 class="title">Les différents formats</h1>
+
+  <p class="subtitle">
+    <strong>Lire des métadonnées • Explorer des dossiers • Créer des playlists</strong>
+  </p>
+  
+  <p class="highlight">
+    <strong>Analyser les métadonnées d’un fichier MP3</strong>
+  </p>
+
+  <nav class="main-nav">
+    <a href="index.html">Accueil</a>
+    <a href="fonctionnalites.html">Nos Fonctionnalites</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main id="container">
+
+  <section>
+    <h2 class="section-title"><em><u>Formats</u></em></h2>
+    <p>
+      Un <strong>format</strong> correspond à une manière standardisée d’organiser des données afin qu’elles puissent être comprises et utilisées par différents logiciels.
+      Dans le cadre des <strong>playlists audio</strong>, un format permet de décrire une <strong>liste de morceaux</strong> à lire en indiquant simplement leurs emplacements, sans contenir le son lui-même.
+      Les formats sont utilisés pour assurer la <strong>compatibilité</strong> entre les lecteurs multimédias et faciliter l’échange de données.
+      Dans notre projet, les <strong>formats de playlists</strong> sont utilisés pour exporter les résultats de l’analyse des fichiers <strong>MP3</strong> de manière exploitable et portable.
+      Ils permettent de représenter une même <strong>playlist interne</strong> sous différentes formes, conformément au cahier des charges et aux usages des lecteurs multimédias.
+    </p>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2 class="section-title"><em><u>Les différents formats disponible</u></em></h2>
+
+    <table class="format-table">
+      <tr>
+        <td class="format-cell-media">
+          <figure class="format-media-li">
+            <img src="M3U8.jpg" alt="M3U8">
+          </figure>
+        </td>
+        <td class="format-cell-text">
+          <section class="format-text">
+            <h3>Format M3U8</h3>
+            <p>
+              Le format <strong>M3U8</strong> est l’un des plus simples et des plus répandus. Il s’agit d’un fichier texte encodé en <strong>UTF-8</strong>, dans lequel chaque ligne correspond à un fichier audio.
+              Sa simplicité le rend très compatible avec de nombreux lecteurs comme <strong>VLC</strong>, mais il contient peu d’informations supplémentaires.
+              Dans notre application, ce format est utilisé pour générer rapidement des <strong>playlists simples</strong> et efficaces.
+            </p>
+          </section>
+        </td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <table class="format-table">
+      <tr>
+        <td class="format-cell-text">
+          <section class="format-text">
+            <h3>Format XSPF</h3>
+            <p>
+              Le format <strong>XSPF</strong> est un format de playlist basé sur <strong>XML</strong>.
+              Il est plus structuré que M3U8 et permet d’inclure, en plus du chemin du fichier, certaines <strong>métadonnées</strong> comme le titre ou l’artiste.
+              Ce format est conçu pour être partageable entre différentes applications et plateformes.
+              Il est plus lisible et plus extensible, ce qui en fait un bon compromis entre simplicité et richesse d’information.
+            </p>
+          </section>
+        </td>
+        <td class="format-cell-media">
+          <figure class="format-media-li">
+            <img src="XSPF.jpg" alt="XSPF">
+          </figure>
+        </td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <table class="format-table">
+      <tr>
+        <td class="format-cell-media">
+          <figure class="format-media">
+            <img src="JSPF.jpg" alt="JSPF">
+          </figure>
+        </td>
+        <td class="format-cell-text">
+          <section class="format-text">
+            <h3>Format JSPF</h3>
+            <p>
+              Le format <strong>JSPF</strong> est l’équivalent du XSPF mais basé sur <strong>JSON</strong>.
+              Il répond davantage aux usages modernes, notamment dans les applications et services orientés web.
+              Comme XSPF, il référence les fichiers audio à l’aide de leurs chemins et peut inclure des métadonnées.
+            </p>
+          </section>
+        </td>
+      </tr>
+    </table>
+
+  </section>
+
+  <hr>
+
+  <section>
+    <h2 class="section-title"><u><em>Comparaison rapide des formats</em></u></h2>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Format</th>
+          <th>Type</th>
+          <th>Lisibilité</th>
+          <th>Métadonnées</th>
+          <th>Usage principal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>M3U8</strong></td>
+          <td>Texte (UTF-8)</td>
+          <td>Très simple</td>
+          <td>Faibles</td>
+          <td>Playlists rapides et compatibles</td>
+        </tr>
+        <tr>
+          <td><strong>XSPF</strong></td>
+          <td>XML</td>
+          <td>Structuré</td>
+          <td>Moyennes à riches</td>
+          <td>Échange entre applications</td>
+        </tr>
+        <tr>
+          <td><strong>JSPF</strong></td>
+          <td>JSON</td>
+          <td>Moderne</td>
+          <td>Moyennes à riches</td>
+          <td>Intégration orientée web</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2 class="section-title"><u><em>Quel format choisir ?</em></u></h2>
+
+    <article class="article">
+      <h3 class="article-title">Choisir M3U8</h3>
+      <p class="part">
+        M3U8 est recommandé lorsque l’objectif est de générer une playlist rapidement, sans information supplémentaire,
+        et de garantir une compatibilité maximale avec de nombreux lecteurs multimédias.
+      </p>
+    </article>
+
+    <article class="article">
+      <h3 class="article-title">Choisir XSPF</h3>
+      <p class="part">
+        XSPF est adapté lorsque l’on souhaite une playlist plus structurée, pouvant contenir des informations supplémentaires
+        sur les morceaux (titre, artiste). C’est un bon choix pour l’échange entre logiciels.
+      </p>
+    </article>
+
+    <article class="article">
+      <h3 class="article-title">Choisir JSPF</h3>
+      <p class="part">
+        JSPF est intéressant dans un contexte moderne orienté web. Le format JSON est souvent utilisé pour communiquer
+        entre applications, et peut être plus facile à exploiter dans certains environnements.
+      </p>
+    </article>
+  </section>
+
+</main>
+<footer class="site-footer">
+
+  <table class="footer-top">
+    <tr>
+      <td>
+        <a class="footer-top-link" href="#top">Retour en haut</a>
+      </td>
+    </tr>
+  </table>
+
+  <table class="footer-alc">
+    <tr>
+      <td class="footer-col">
+        <strong>Autre redirections</strong>
+        <ul class="footer-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+          <li><a href="formats.html">Formats</a></li>
+          <li><a href="contact.html">Contact / FAQ</a></li>
+        </ul>
+      </td>
+      <td class="footer-col">
+        <p class="footer-text">
+          <strong>Auteurs :</strong> Moulai Rayan et Diaby Moustapha<br>
+          Licence Informatique L2 CYU<br>
+          Année 2025–2026<br>
+          Analyser les métadonnées d’un fichier MP3
+        </p>
+      </td>
+      <td class="footer-col">
+        <img id="logobas" src="2eme.png" alt="logblanc">
+      </td>
+    </tr>
+  </table>
+</footer>
+</body>
+</html>
